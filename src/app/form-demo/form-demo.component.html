@@ -1,0 +1,47 @@
+<div class="container">
+ <h2>Demo Form: Sku</h2>
+ <form [formGroup]="myForm"
+       (ngSubmit)="onSubmit(myForm.value)"
+       class="jumbotron">
+
+   <div class="form-group">
+     <label for="skuInput">SKU</label>
+     <input type="text"
+           id="skuInput"
+           placeholder="SKU"
+           name="sku"
+           [formControl]="myForm.controls['sku']"
+           class="form-control">
+           
+     <br>
+     <label for="numberinput">SKU</label>
+     <input type="number"
+           id="numberinput"
+           placeholder="number"
+           name="number"
+           [formControl]="myForm.controls['number']"
+           class="form-control">
+           
+     <br>
+     <label for="searchinput">SKU</label>
+     <input type="search"
+           id="searchinput"
+           placeholder="search"
+           name="search"
+           [formControl]="myForm.controls['search']"
+           class="form-control">
+           
+   </div>
+
+   <div *ngIf="!myForm.controls['sku'].valid"
+         class="alert alert-danger">SKU is invalid
+   </div>
+   <div *ngIf="myForm.controls['sku'].hasError('required')"
+         class="alert alert-danger">SKU is required
+   </div>
+   <button type="submit" class="btn btn-primary">Submit</button>
+ </form>
+  
+ <div *ngIf="!myForm.valid"
+ class="alert alert-danger">Form is invalid</div>
+</div>
